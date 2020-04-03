@@ -71,7 +71,7 @@ final class SprintProjectProfileController
       ->setBackground(PHUIBoxView::GREY)
       ->setUserPHIDs($project->getWatcherPHIDs());
 
-    $nav = $this->getProfileMenu();
+    $nav = $this->getProfileMenuEngine();
     $nav->selectFilter(PhabricatorProject::ITEM_PROFILE);
 
     $stories = id(new PhabricatorFeedQuery())
@@ -187,7 +187,7 @@ final class SprintProjectProfileController
       ->setWorkflow(true)
       ->setIcon($watch_icon)
       ->setText($watch_text)
-      ->setHref($watch_href);
+      ->setURI($watch_href);
   }
 
   private function buildMilestoneList(PhabricatorProject $project) {
@@ -224,7 +224,7 @@ final class SprintProjectProfileController
         id(new PHUIIconView())
           ->setIcon('fa-list-ul'))
       ->setText(pht('View All'))
-      ->setHref("/project/subprojects/{$id}/");
+      ->setURI("/project/subprojects/{$id}/");
 
     $header = id(new PHUIHeaderView())
       ->setHeader(pht('Milestones'))
@@ -272,7 +272,7 @@ final class SprintProjectProfileController
         id(new PHUIIconView())
           ->setIcon('fa-list-ul'))
       ->setText(pht('View All'))
-      ->setHref("/project/subprojects/{$id}/");
+      ->setURI("/project/subprojects/{$id}/");
 
     $header = id(new PHUIHeaderView())
       ->setHeader(pht('Subprojects'))
