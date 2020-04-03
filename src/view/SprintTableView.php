@@ -115,10 +115,10 @@ final class SprintTableView extends AphrontView {
       while (count($headers) > count($device_visibility)) {
         $device_visibility[] = true;
       }
-      while (count($headers) > count($short_headers)) {
+      while (count($headers) > count((array) $short_headers)) {
         $short_headers[] = null;
       }
-      while (count($headers) > count($sort_values)) {
+      while (count($headers) > count((array) $sort_values)) {
         $sort_values[] = null;
       }
 
